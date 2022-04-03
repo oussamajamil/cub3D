@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:19:04 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/02 20:09:45 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/03 11:06:02 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -330,22 +330,37 @@ void ft_free(t_map *data)
     free(data->var1);
     free(data->var2);
     free(data->line);
-    // while (data->map[i])
-    // {
-    //     tmp = data->map[i];
-    //     i++;
-    //     free(tmp);
-    // }
-    // // free(data->map);
-    // i = 0;
-    //  while (data->files[i])
-    // {
-    //    tmp = data->files[i];
-    //    i++;
-    //    free(tmp);
+}
+void ft_remplir_var(t_map *data)
+{
+    int i;
+    int j;
+    int k;
+
+    i = 0;
+    while (data->files[i])
+    {
+        j = 0;
+        while (data->files[i][j])
+        {
+            while (data->files[i][j] == ' ')
+            {
+               j++;
+            }
+            if (data->files[i][j] == 'N' && data->files[i][j+1] == 'O')
+            {
+                j +=2;
+                 while (data->files[i][j] == ' ')
+                {
+                    j++;
+                }
+                data->file_NO= ft_strdup(&data->files[i][j]);
+            }
+            j++;
+        }
+       i++; 
+    }
     
-    // }
-    // free(data->files);
 }
 
 int main()
@@ -374,6 +389,9 @@ int main()
                 ft_remplir_map(&data);
                 if (ft_check_map_horizontal(data.map, data.width, data.height) == 0 && ft_check_map_vertical(data.map, data.width, data.height) == 0){
                     data.files = ft_split(data.var1,'\n');
+                    ft_remplir_var(&data);
+                    printf("%s\n",data.file_NO);
+                    
                 }
                 else
                     printf("error");
@@ -381,28 +399,3 @@ int main()
         }
     }
 }
-    
-    // 
-    // printf("%s",map[0]);
-    // 
-    // printf("%s",map[0]);
-    // while (/* condition */)
-    // {
-    //     /* code */
-    // }
-    
-    // if (ft_check_line(line) == -1)
-    // {
-    //     write(1, "error\n", 6);
-    //     return (0);
-    // }
-    // else
-    // {
-    //     map = ft_split(line, '\n');
-    //     get_width_height(map, &width, &height);
-    //     ft_remplir_map(map, width, height);
-    //     if (ft_check_map_horizontal(map, width, height) == 0 && ft_check_map_vertical(map, width, height) == 0)
-    //         write(1, "OK", 2);
-    //     else
-    //         write(1, "error\n", 6);
-    // }

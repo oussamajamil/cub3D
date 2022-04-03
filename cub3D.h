@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:21:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/02 14:59:51 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/03 11:00:44 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ typedef struct  s_map{
     int width;
     int pos;
     int height;
+    char *file_NO;
+    char *file_SO;
+    char *file_WE;
+    char *file_EA;
 }t_map;
 char *get_get_next_line(int fd);
 char	**ft_split(char *s, char c);
