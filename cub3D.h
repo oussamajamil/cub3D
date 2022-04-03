@@ -6,18 +6,19 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:21:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/03 11:00:44 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/03 23:03:51 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
-# define CUB3D_H
+#define CUB3D_H
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <stdio.h>
-typedef struct  s_map{
+typedef struct s_map
+{
     char **map;
     char *line;
     char *var1;
@@ -30,8 +31,19 @@ typedef struct  s_map{
     char *file_SO;
     char *file_WE;
     char *file_EA;
-}t_map;
+} t_map;
 char *get_get_next_line(int fd);
-char	**ft_split(char *s, char c);
+char **ft_split(char *s, char c);
 void ft_initial(t_map *data);
+char *get_next_line(int fd);
+char *get_line(int fd);
+char *ft_stjoin(char *str1, char *str2);
+int ft_strlen(const char *str);
+char *ft_strdup(const char *s1);
+void get_width_height(t_map *data);
+int ft_check_line(char *line);
+int ft_check_map_horizontal(char **map, int width, int height);
+void ft_remplir_map(t_map *data);
+void ft_free(t_map *data);
+void ft_initiale(t_map *data);
 #endif
