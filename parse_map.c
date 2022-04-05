@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:02:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/03 23:02:48 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/05 00:25:28 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ void ft_divis_line(t_map *data)
     }
     data->var2[j] = 0;
 }
-
+void ft_hexa(t_map *data, char *str)
+{
+    printf("%s", str);
+}
 void ft_remplir_var(t_map *data)
 {
     int i;
@@ -113,6 +116,11 @@ void ft_remplir_var(t_map *data)
                 j++;
             if (data->files[i][j] == 'N' && data->files[i][j + 1] == 'O')
             {
+                if (data->file_NO != NULL)
+                {
+                    printf("error");
+                    return;
+                }
                 j += 2;
                 while (data->files[i][j] == ' ')
                     j++;
@@ -120,6 +128,11 @@ void ft_remplir_var(t_map *data)
             }
             if (data->files[i][j] == 'S' && data->files[i][j + 1] == 'O')
             {
+                if (data->file_SO)
+                {
+                    printf("error");
+                    return;
+                }
                 j += 2;
                 while (data->files[i][j] == ' ')
                     j++;
@@ -127,6 +140,11 @@ void ft_remplir_var(t_map *data)
             }
             if (data->files[i][j] == 'W' && data->files[i][j + 1] == 'E')
             {
+                if (data->file_WE)
+                {
+                    printf("error");
+                    return;
+                }
                 j += 2;
                 while (data->files[i][j] == ' ')
                     j++;
@@ -134,10 +152,28 @@ void ft_remplir_var(t_map *data)
             }
             if (data->files[i][j] == 'E' && data->files[i][j + 1] == 'A')
             {
+                if (data->file_EA)
+                {
+                    printf("error");
+                    return;
+                }
                 j += 2;
                 while (data->files[i][j] == ' ')
                     j++;
                 data->file_EA = ft_strdup(&data->files[i][j]);
+            }
+            if (data->files[i][j] == 'C')
+            {
+                if (data->file_c != 0)
+                {
+
+                    printf("error");
+                    return;
+                }
+                j++;
+                while (data->files[i][j] == ' ')
+                    j++;
+                ft_hexa(data, &data->files[i][j]);
             }
         }
     }
@@ -154,18 +190,18 @@ int main()
     data.pos = ft_handel_map(data.line);
     if (data.pos == -1)
     {
-        printf("error1");
+        printf("error");
         return 0;
     }
     ft_divis_line(&data);
     if (data.var1 == NULL || data.var2 == NULL)
     {
-        printf("error2");
+        printf("error");
         return 0;
     }
     if (ft_check_line(data.var2) == -1)
     {
-        printf("error3");
+        printf("error");
         return 0;
     }
 

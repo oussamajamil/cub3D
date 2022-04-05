@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:00:42 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/03 23:02:19 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/05 00:20:14 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,8 @@ void ft_initiale(t_map *data)
     data->width = 0;
     data->pos = 0;
     data->line = NULL;
+    data->file_EA = NULL;
+    data->file_NO = NULL;
+    data->file_SO = NULL;
+    data->file_WE = NULL;
 }
