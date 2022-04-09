@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: macbookprom12020 <macbookprom12020@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:00:42 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/05 00:20:14 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/09 03:04:54 by macbookprom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ void ft_initiale(t_map *data)
     data->file_NO = NULL;
     data->file_SO = NULL;
     data->file_WE = NULL;
+    data->file_c = -1;
+    data->file_f = -1;
 }
