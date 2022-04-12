@@ -6,21 +6,12 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:00:42 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/09 13:16:46 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/09 14:55:56 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-// void ft_free(t_map *data)
-// {
-//     int i;
-//     char *tmp;
 
-//     i = 0;
-//     free(data->var1);
-//     free(data->var2);
-//     free(data->line);
-// }
 void ft_free_double_pointer(char **str)
 {
     int i;
@@ -34,6 +25,7 @@ void ft_free_double_pointer(char **str)
     free(str);
     
 }
+
 void ft_initiale(t_map *data)
 {
     data->map = NULL;

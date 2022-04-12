@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: macbookprom12020 <macbookprom12020@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:21:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/09 13:52:57 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/12 02:03:09 by macbookprom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int     ft_atoi(const char *str);
 int     ft_strcmp(char *s1, char *s2);
 void    ft_free_double_pointer(char **str);
 void    ft_check_extens_map(char *str);
-void    ft_check_file_exist(char *str);
+int    ft_check_file_exist(char *str);
 void    ft_divis_line(t_map *data);
 int     ft_check_map_vertical(char **map, int width, int height);
 # endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: macbookprom12020 <macbookprom12020@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 13:25:26 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/09 13:52:36 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/12 02:01:58 by macbookprom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,13 @@ void ft_check_extens_map(char *str)
         ft_free_double_pointer(res);
 }
 
-void ft_check_file_exist(char *str)
+int ft_check_file_exist(char *str)
 {
     int fd = open(str,O_RDONLY);
     if (fd < 0)
-    {
-        printf("file existe pas\n");
-        exit(0);
-    }
+        return(-1);
     close(fd);
+    return(0);
 }
 
 void ft_divis_line(t_map *data)
