@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:21:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 04:18:22 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 18:13:40 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,6 @@ void	ft_norm_remplir_var3(t_map *data, int *i, int *j, int *a);
 void	ft_parse_map1(int nb, t_map *data, char *map);
 void	ft_check_content_data(int nb, char *str);
 void	ft_printf_data(t_map *data);
+int		ft_is_number(char *str);
+void	ft_hexa(int *data, char *str);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 13:25:26 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 04:43:44 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 17:12:13 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_check_extens_map(char *str)
 	res = ft_split(str, '.');
 	if (ft_strcmp(res[1], "cub") != 0)
 	{
-		printf("error map\n");
+		printf("Error : wrong format\n");
 		ft_free_double_pointer(res);
 		exit(0);
 	}

@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 03:17:41 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 04:44:38 by ojamil           ###   ########.fr       */
+/*   Created: 2022/04/16 17:12:00 by ojamil            #+#    #+#             */
+/*   Updated: 2022/04/16 18:15:04 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "cub3D.h"
 
@@ -40,22 +41,24 @@ void	ft_check_content_data(int nb, char *str)
 			i++;
 		if (str[i] == 'E' || str[i] == 'W' || str[i] == 'S' || str[i] == 'N')
 		{
-			if (cp > 1)
-				ft_message_and_exit("error");
+			if (cp >= 1)
+				ft_message_and_exit("Error : Duplicate player");
 			cp++;
 		}
 		if ((str[i] == 'F' || str[i] == 'D' || str[i] == 'T') && nb == 0)
-			ft_message_and_exit("error");
+			ft_message_and_exit("Error: invalid identifier");
 		if (str[i] != 'E' && str[i] != 'W' && str[i] != 'S'
 			&& str[i] != 'N' && str[i] != 'F'
 			&& str[i] != 'D' && str[i] != '0' && str[i] != '1')
-			ft_message_and_exit("error");
+			ft_message_and_exit("Error: invalid identifier");
 		i++;
 	}
 }
 
 void	ft_parse_map(int nb, t_map *data, char *map)
 {
+	if(map[0] == 0)
+		ft_message_and_exit("Error: param invalid");
 	ft_check_extens_map(map);
 	ft_parse_map1(nb, data, map);
 	ft_remplir_map(data);
@@ -65,15 +68,16 @@ void	ft_parse_map(int nb, t_map *data, char *map)
 		data->files = ft_split(data->var1, '\n');
 		ft_remplir_var(data);
 		if (ft_check_data_final(data) == -1)
-			ft_message_and_exit("error");
-		if (ft_check_file_exist(data->file_no) == -1
+			ft_message_and_exit("Error: missing informations");
+		if
+		(ft_check_file_exist(data->file_no) == -1
 			|| ft_check_file_exist(data->file_so) == -1
 			|| ft_check_file_exist(data->file_we) == -1
 			|| ft_check_file_exist(data->file_ea) == -1)
-			ft_message_and_exit("error");
+			ft_message_and_exit("Error : invalid texture files");
 	}
 	else
-		printf("error aaaa");
+		ft_message_and_exit("Error: Map not enclosed by walls");
 }
 
 void	ft_remplir_var(t_map *data)
@@ -96,5 +100,5 @@ void	ft_remplir_var(t_map *data)
 		}
 	}
 	if (a == 0)
-		ft_message_and_exit("error");
+		ft_message_and_exit("Error : Duplicate informations");
 }

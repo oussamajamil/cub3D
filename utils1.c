@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:22:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 03:35:01 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 17:43:08 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char	*get_line(int fd)
 	buffer = NULL;
 	buffer = malloc(sizeof(char) * 2);
 	a = 1;
+
 	while (a > 0)
 	{
 		a = read(fd, buffer, 1);
@@ -84,6 +85,7 @@ char	*get_next_line(int fd)
 {
 	char	*line;
 
+	line = NULL;
 	if (fd < 0)
 		return (NULL);
 	line = get_line(fd);
