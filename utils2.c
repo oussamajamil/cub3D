@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:57:13 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 17:12:17 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 22:53:58 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_remplir_map(t_map *data)
 	i = -1;
 	buffer = malloc(sizeof(char) * (data->width + 1));
 	if (!buffer)
-		return ;
+		exit(0);
 	while (++i < data->height)
 	{
 		j = -1;
@@ -66,7 +66,7 @@ void	ft_remplir_map(t_map *data)
 	free(buffer);
 }
 
-int	ft_check_map_horizontal(char **map, int width, int height)
+int	ft_check_map_horizontal(char **map, int height)
 {
 	int	i;
 	int	j;
@@ -99,9 +99,7 @@ int	ft_handel_map(char *line)
 {
 	int	pos;
 	int	i;
-	int	a;
 
-	pos = -1;
 	i = 0;
 	while (line[i] == ' ' || line[i] == '\n')
 		i++;
@@ -115,8 +113,7 @@ int	ft_handel_map(char *line)
 		{
 			while (line[i] == '\n')
 				i++;
-			pos = i;
-			i++;
+			pos = i++;
 			while (line[i] == ' ')
 				i++;
 			if (line[i] == '1' || line[i] == '0')

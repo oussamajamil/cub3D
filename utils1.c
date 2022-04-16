@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:22:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 17:43:08 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 22:56:43 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_stjoin(char *str1, char *str2)
 	l = ft_strlen(str1) + ft_strlen(str2);
 	result = malloc(sizeof(char) * (l + 1));
 	if (!result)
-		return (NULL);
+		exit(0);
 	while (str1[++i])
 		result[i] = str1[i];
 	while (str2[++j])
@@ -62,8 +62,9 @@ char	*get_line(int fd)
 	line = NULL;
 	buffer = NULL;
 	buffer = malloc(sizeof(char) * 2);
+	if (!buffer)
+		exit(0);
 	a = 1;
-
 	while (a > 0)
 	{
 		a = read(fd, buffer, 1);
@@ -104,7 +105,7 @@ char	*ft_strdup(const char *s1)
 	l = ft_strlen(s1);
 	str = malloc(sizeof(char) * (l + 1));
 	if (!str)
-		return (NULL);
+		exit(0);
 	while (s1[i])
 	{
 		str[i] = s1[i];

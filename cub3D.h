@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:21:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 18:13:40 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 22:54:09 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_strlen(const	char *str);
 char	*ft_strdup(const	char *s1);
 void	get_width_height(t_map	*data);
 int		ft_check_line(char	*line);
-int		ft_check_map_horizontal(char	**map, int width, int height);
+int		ft_check_map_horizontal(char	**map, int height);
 void	ft_remplir_map(t_map	*data);
 void	ft_free(t_map	*data);
 void	ft_initiale(t_map	*data);
@@ -71,4 +71,5 @@ void	ft_check_content_data(int nb, char *str);
 void	ft_printf_data(t_map *data);
 int		ft_is_number(char *str);
 void	ft_hexa(int *data, char *str);
+void	ft_check_text_incorrect(char *str);
 #endif

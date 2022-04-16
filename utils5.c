@@ -6,10 +6,9 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:12:00 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 18:15:04 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 23:03:52 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3D.h"
 
@@ -53,19 +52,22 @@ void	ft_check_content_data(int nb, char *str)
 			ft_message_and_exit("Error: invalid identifier");
 		i++;
 	}
+	if (cp == 0)
+		ft_message_and_exit("missing items");
 }
 
 void	ft_parse_map(int nb, t_map *data, char *map)
 {
-	if(map[0] == 0)
+	if (map[0] == 0)
 		ft_message_and_exit("Error: param invalid");
 	ft_check_extens_map(map);
 	ft_parse_map1(nb, data, map);
 	ft_remplir_map(data);
-	if (ft_check_map_horizontal(data->map, data->width, data->height) == 0
+	if (ft_check_map_horizontal(data->map, data->height) == 0
 		&& ft_check_map_vertical(data->map, data->width, data->height) == 0)
 	{
 		data->files = ft_split(data->var1, '\n');
+		free(data->var1);
 		ft_remplir_var(data);
 		if (ft_check_data_final(data) == -1)
 			ft_message_and_exit("Error: missing informations");
@@ -91,12 +93,18 @@ void	ft_remplir_var(t_map *data)
 	a = -1;
 	while (data->files[++i])
 	{
-		j = -1;
-		while (data->files[i][++j])
+		j = 0;
+		while (data->files[i][j] == ' ' || data->files[i][j] == '\n' )
+			j++;
+		ft_check_text_incorrect(&data->files[i][j]);
+		while (data->files[i][j])
 		{
+			while (data->files[i][j] == ' ')
+				j++;
 			ft_norm_remplir_var1(data, &i, &j, &a);
 			ft_norm_remplir_var2(data, &i, &j, &a);
 			ft_norm_remplir_var3(data, &i, &j, &a);
+			j++;
 		}
 	}
 	if (a == 0)

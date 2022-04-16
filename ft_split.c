@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 00:56:12 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 02:14:30 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 20:59:43 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_split_2(char *s, char c, char **str, int i)
 			k = 0;
 			str[j] = (char *)malloc(ft_count_and_alloc((char *)&s[i], c) + 1);
 			if (!str[j])
-				return (j);
+				exit(0);
 			while (k < ft_count_and_alloc((char *)&s[i], c))
 			{
 				str[j][k] = s[i + k];
@@ -94,7 +94,7 @@ char	**ft_split(char *s, char c)
 		return (NULL);
 	str = (char **)malloc(sizeof(char *) * count_word(s, c) + 1);
 	if (!str)
-		return (NULL);
+		exit(0);
 	j = ft_split_2(s, c, str, 0);
 	if (j != -1)
 	{
