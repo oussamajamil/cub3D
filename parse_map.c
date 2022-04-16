@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:02:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 04:42:19 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 14:40:28 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_hexa(int *data, char *str)
 	while (res[i])
 		i++;
 	if (i != 3)
-		ft_message_and_exit("error");
+		ft_message_and_exit("Error : invalid RGB value");
 	*data = ft_atoi(res[0]) * 256 * 256
 		+ft_atoi(res[1]) * 256 + ft_atoi(res[0]);
 }
@@ -106,28 +106,29 @@ void	ft_parse_map1(int nb, t_map *data, char *map)
 	ft_initiale(data);
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		ft_message_and_exit("error");
+		ft_message_and_exit("Error : file doesn't exist or permission denied");
 	data->line = get_next_line(fd);
 	data->pos = ft_handel_map(data->line);
 	if (data->pos == -1)
-		ft_message_and_exit("error");
+		ft_message_and_exit("Error : map not found");
 	ft_divis_line(data);
 	if (data->var1 == NULL || data->var2 == NULL)
-		ft_message_and_exit("error");
+		ft_message_and_exit("error 3");
 	if (ft_check_line(data->var2) == -1)
-		ft_message_and_exit("error");
+		ft_message_and_exit("Error: newline found");
 	ft_check_content_data(nb, data->var2);
 	data->map = ft_split(data->var2, '\n');
 	get_width_height(data);
 }
-// int	main(int ac, char *av[])
-// {
-// 	t_map	data;
+int	main(int ac, char *av[])
+{
+	t_map	data;
 
-// 	if (ac != 2)
-// 	{
-// 		printf("error");
-// 		exit(0);
-// 	}
-// 	ft_parse_map(1, &data, av[1]);
-// }
+	if (ac != 2)
+	{
+		printf("error");
+		exit(0);
+	}
+	ft_parse_map(1, &data, av[1]);
+	ft_printf_data(&data);
+}
