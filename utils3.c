@@ -6,42 +6,41 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:00:42 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/09 14:55:56 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 03:42:18 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void ft_free_double_pointer(char **str)
+void	ft_free_double_pointer(char **str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-      free(str[i]);
-      i++;
-    }
-    free(str);
-    
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
-void ft_initiale(t_map *data)
+void	ft_initiale(t_map *data)
 {
-    data->map = NULL;
-    data->height = 0;
-    data->files = NULL;
-    data->var1 = NULL;
-    data->var2 = NULL;
-    data->width = 0;
-    data->pos = 0;
-    data->line = NULL;
-    data->file_EA = NULL;
-    data->file_NO = NULL;
-    data->file_SO = NULL;
-    data->file_WE = NULL;
-    data->file_c = -1;
-    data->file_f = -1;
+	data->map = NULL;
+	data->height = 0;
+	data->files = NULL;
+	data->var1 = NULL;
+	data->var2 = NULL;
+	data->width = 0;
+	data->pos = 0;
+	data->line = NULL;
+	data->file_ea = NULL;
+	data->file_no = NULL;
+	data->file_so = NULL;
+	data->file_we = NULL;
+	data->file_c = -1;
+	data->file_f = -1;
 }
 
 int	ft_atoi(const char *str)
