@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:02:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 14:40:28 by hdrabi           ###   ########.fr       */
+/*   Updated: 2022/04/16 14:58:16 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,21 +112,20 @@ void	ft_parse_map1(int nb, t_map *data, char *map)
 	if (data->pos == -1)
 		ft_message_and_exit("Error : map not found");
 	ft_divis_line(data);
-	if (data->var1 == NULL || data->var2 == NULL)
-		ft_message_and_exit("error 3");
 	if (ft_check_line(data->var2) == -1)
 		ft_message_and_exit("Error: newline found");
 	ft_check_content_data(nb, data->var2);
 	data->map = ft_split(data->var2, '\n');
 	get_width_height(data);
 }
+
 int	main(int ac, char *av[])
 {
 	t_map	data;
 
 	if (ac != 2)
 	{
-		printf("error");
+		printf("Error\n");
 		exit(0);
 	}
 	ft_parse_map(1, &data, av[1]);

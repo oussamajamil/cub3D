@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:57:13 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 03:41:06 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/16 14:58:25 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,10 @@ int	ft_handel_map(char *line)
 
 	pos = -1;
 	i = 0;
+	while (line[i] == ' ' || line[i] == '\n')
+		i++;
+	if (line[i] == '1' || line[i] == '0')
+		return (-1);
 	while (line[i])
 	{
 		while (line[i] != '\n' && line[i] != '1' && line[i] != '0')
