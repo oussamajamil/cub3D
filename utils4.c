@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 13:25:26 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 17:12:13 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/17 02:06:42 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 void	ft_check_extens_map(char *str)
 {
 	char	**res;
+	int		i;
 
+	i = 0;
 	res = NULL;
 	res = ft_split(str, '.');
-	if (ft_strcmp(res[1], "cub") != 0)
+	while (res[i])
+		i++;
+	if (ft_strcmp(res[i - 1], "cub") != 0)
 	{
 		printf("Error : wrong format\n");
 		ft_free_double_pointer(res);

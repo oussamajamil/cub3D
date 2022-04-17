@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 00:56:12 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 20:59:43 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/17 02:10:00 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,18 +92,11 @@ char	**ft_split(char *s, char c)
 
 	if (!s)
 		return (NULL);
-	str = (char **)malloc(sizeof(char *) * count_word(s, c) + 1);
+	str = malloc(sizeof(char *) * count_word(s, c) + 1);
 	if (!str)
 		exit(0);
 	j = ft_split_2(s, c, str, 0);
 	if (j != -1)
-	{
-		while (j >= 0)
-		{
-			free(str[j]);
-			j--;
-		}
-		free(str);
-	}
+		exit(0);
 	return (str);
 }

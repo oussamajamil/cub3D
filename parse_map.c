@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:02:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 23:05:38 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/17 02:32:27 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,13 @@ void	ft_parse_map1(int nb, t_map *data, char *map)
 	if (data->pos == -1)
 		ft_message_and_exit("Error : map not found");
 	ft_divis_line(data);
-	free(data->line);
 	if (ft_check_line(data->var2) == -1)
 		ft_message_and_exit("Error: newline found");
 	ft_check_content_data(nb, data->var2);
 	data->map = ft_split(data->var2, '\n');
 	free(data->var2);
 	get_width_height(data);
+	free(data->line);
 }
 
 int	main(int ac, char *av[])
@@ -125,4 +125,9 @@ int	main(int ac, char *av[])
 	}
 	ft_parse_map(1, &data, av[1]);
 	ft_printf_data(&data);
+	ft_free_double_pointer(data.map);
+	free(data.file_no);
+	free(data.file_so);
+	free(data.file_we);
+	free(data.file_ea);
 }

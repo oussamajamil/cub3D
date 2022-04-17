@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils6.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:04:22 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 22:52:28 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/17 02:03:25 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_hexa(int *data, char *str)
 		ft_message_and_exit("Error : invalid RGB value");
 	*data = ft_atoi(res[0]) * 256 * 256
 		+ft_atoi(res[1]) * 256 + ft_atoi(res[0]);
+	ft_free_double_pointer(res);
 }
 
 void	ft_check_text_incorrect(char *str)

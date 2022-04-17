@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:22:39 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 22:56:43 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/17 02:31:32 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ char	*ft_stjoin(char *str1, char *str2)
 	{
 		str1 = malloc(1);
 		if (!str1)
-			return (NULL);
+			exit(0);
 		str1[0] = '\0';
 	}
-	l = ft_strlen(str1) + ft_strlen(str2);
-	result = malloc(sizeof(char) * (l + 1));
+	result = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
 	if (!result)
 		exit(0);
 	while (str1[++i])
@@ -50,6 +49,7 @@ char	*ft_stjoin(char *str1, char *str2)
 	while (str2[++j])
 		result[i + j] = str2[j];
 	result[i + j] = '\0';
+	free(str1);
 	return (result);
 }
 
@@ -69,7 +69,7 @@ char	*get_line(int fd)
 	{
 		a = read(fd, buffer, 1);
 		if (a < 0)
-			return (NULL);
+			exit(0);
 		else if (a == 0)
 			break ;
 		else
@@ -88,7 +88,7 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	if (fd < 0)
-		return (NULL);
+		exit(0);
 	line = get_line(fd);
 	if (!line)
 		return (NULL);

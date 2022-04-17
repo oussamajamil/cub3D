@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:12:00 by ojamil            #+#    #+#             */
-/*   Updated: 2022/04/16 23:03:52 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/04/17 02:16:04 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_check_content_data(int nb, char *str)
 		i++;
 	}
 	if (cp == 0)
-		ft_message_and_exit("missing items");
+		ft_message_and_exit("Error: missing items");
 }
 
 void	ft_parse_map(int nb, t_map *data, char *map)
@@ -69,6 +69,7 @@ void	ft_parse_map(int nb, t_map *data, char *map)
 		data->files = ft_split(data->var1, '\n');
 		free(data->var1);
 		ft_remplir_var(data);
+		ft_free_double_pointer(data->files);
 		if (ft_check_data_final(data) == -1)
 			ft_message_and_exit("Error: missing informations");
 		if
